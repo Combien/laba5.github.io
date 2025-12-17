@@ -1,0 +1,451 @@
+/* --- Загальні стилі --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #0f0f0f;
+    color: #ffffff;
+    font-family: 'Open Sans', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+/* --- Header --- */
+.header {
+    background-color: #0f0f0f;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    max-width: 1240px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin-right: 30px;
+    cursor: pointer;
+}
+
+.nav {
+    display: flex;
+    gap: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    flex-grow: 1;
+}
+
+.nav-link {
+    color: #aaa;
+    padding: 10px 0;
+    position: relative;
+}
+
+.nav-link:hover, .nav-link.active-link {
+    color: #fff;
+}
+
+/* Dropdown */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: -10px;
+    background-color: #1f1f1f;
+    min-width: 220px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+    border-radius: 8px;
+    padding: 15px 0;
+    z-index: 10;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dropdown-content a {
+    color: #ddd;
+    padding: 10px 20px;
+    display: block;
+    font-size: 14px;
+    text-transform: none;
+}
+
+.dropdown-content a:hover {
+    background-color: #2a2a2a;
+    color: #fff;
+    padding-left: 25px; /* Анімація зсуву */
+}
+
+.dropdown-content a.highlight {
+    color: #ff6b6b;
+}
+
+/* Header Right Actions */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.btn-tariff {
+    background: transparent;
+    border: 1px solid #555;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-tariff:hover {
+    border-color: #fff;
+}
+
+.login-link:hover {
+    text-decoration: underline;
+}
+
+/* --- Main Content --- */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: #ccc;
+    margin-bottom: 50px;
+}
+
+.details-link {
+    margin-top: 40px;
+    color: #aaa;
+    border-bottom: 1px solid #555;
+    padding-bottom: 2px;
+}
+.details-link:hover {
+    color: #fff;
+    border-color: #fff;
+}
+
+/* --- Cards --- */
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap; /* Щоб переносились на новий рядок */
+    width: 100%;
+    max-width: 1200px;
+}
+
+.card {
+    background: #1a1a1a;
+    border-radius: 20px;
+    padding: 40px 25px;
+    width: 320px; /* Фіксована ширина */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+/* Градієнти фону */
+.card-light {
+    background: linear-gradient(180deg, #3d3a1e 0%, #1a1a1a 60%);
+}
+
+.card-optimal {
+    background: linear-gradient(180deg, #422618 0%, #1a1a1a 60%);
+}
+
+.card-max {
+    background: linear-gradient(180deg, #103333 0%, #1a1a1a 60%);
+    border: 1px solid #2a5a5a;
+}
+
+.card-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+    height: 60px; /* Вирівнювання заголовків */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.sub-title {
+    font-size: 22px;
+    font-weight: 400;
+}
+
+.card-desc {
+    font-size: 14px;
+    color: #ddd;
+    margin-bottom: 30px;
+    height: 40px;
+    line-height: 1.4;
+}
+
+.card-stats {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-num {
+    font-size: 22px;
+    font-weight: 800;
+}
+
+.stat-label {
+    font-size: 12px;
+    color: #aaa;
+}
+
+.btn-connect {
+    background-color: #fff;
+    color: #000;
+    border: none;
+    padding: 12px 0;
+    width: 100%;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    margin-bottom: 25px;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.btn-connect:hover {
+    background-color: #eee;
+    transform: scale(1.05);
+}
+
+/* Ціна */
+.price-block {
+    text-align: center;
+}
+
+.price-row {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 5px;
+}
+
+.price-label {
+    font-size: 14px;
+}
+
+.price-val {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.price-period {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 12px;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #777;
+}
+
+.trial-info {
+    font-size: 13px;
+    color: #aaa;
+    margin-top: 5px;
+}
+
+/* Бейдж */
+.badge {
+    position: absolute;
+    top: 20px;
+    right: -30px;
+    background-color: #00cba0;
+    color: #000;
+    font-size: 10px;
+    font-weight: 800;
+    padding: 5px 30px;
+    transform: rotate(45deg);
+    text-transform: uppercase;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* --- Реєстрація (Form) --- */
+.auth-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle at center, #222 0%, #0f0f0f 100%);
+}
+
+.auth-box {
+    background-color: #1f1f1f;
+    padding: 40px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.auth-box h2 {
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    background-color: #2a2a2a;
+    border: 1px solid #444;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    border-color: #00cba0;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    background-color: #00cba0; /* Акцентний колір */
+    color: #000;
+    border: none;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: filter 0.3s;
+}
+
+.btn-login:hover {
+    filter: brightness(1.1);
+}
+
+.btn-register {
+    width: 100%;
+    padding: 12px;
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #555;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-register:hover {
+    background-color: #333;
+}
+
+.auth-footer {
+    margin-top: 20px;
+    font-size: 13px;
+    color: #777;
+    cursor: pointer;
+}
+
+/* --- Адаптивність (Responsive) --- */
+@media (max-width: 1050px) {
+    .nav {
+        display: none; /* Спрощуємо для мобільного вигляду: ховаємо меню */
+    }
+    .header-container {
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 800px) {
+    .cards-container {
+        flex-direction: column; /* Ставимо картки в стовпчик */
+        align-items: center;
+    }
+    
+    .card {
+        width: 100%;
+        max-width: 350px; /* Трохи ширше на мобільних */
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+}
